@@ -4,3 +4,10 @@ next-env.d.ts
 data/
 *.tsbuildinfo
 .DS_Store
+
+# Copyrighted source material and everything derived from it — keep local only.
+Tests and Answers/
+*.epub
+scripts/ocr_cache/
+scripts/out/
+scripts/__pycache__/

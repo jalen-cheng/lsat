@@ -32,7 +32,12 @@ type BankItem = {
   wasWrong: number | null;
 };
 
-const PTS = Array.from({ length: 159 - 101 + 1 }, (_, i) => 101 + i);
+// Modern LawHub PrepTests (paste workflow) plus the older PrepTests imported
+// from the scanned PDFs (7–56).
+const PASTE_PTS = Array.from({ length: 159 - 101 + 1 }, (_, i) => 101 + i);
+const OLD_PTS = Array.from({ length: 56 - 7 + 1 }, (_, i) => 7 + i);
+const PTS = PASTE_PTS;
+const FILTER_PTS = [...PASTE_PTS, ...OLD_PTS];
 
 export default function Manage() {
   const [preptest, setPreptest] = useState(159);
@@ -213,7 +218,7 @@ export default function Manage() {
             <span>filter PT</span>
             <select value={filterPt} onChange={(e) => setFilterPt(e.target.value)}>
               <option value="">all</option>
-              {PTS.map((p) => (
+              {FILTER_PTS.map((p) => (
                 <option key={p} value={p}>
                   {p}
                 </option>

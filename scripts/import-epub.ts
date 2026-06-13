@@ -17,7 +17,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { db } from "../lib/db.ts";
-import { classify, classifyRC } from "../lib/classify.ts";
+import { classifyLR, classifyRC } from "../lib/classify.ts";
 
 // ----------------------------- html helpers -----------------------------
 const NAMED: Record<string, string> = {
@@ -98,7 +98,7 @@ function parseLR(dir: string): Q[] {
     out.push({
       book: "LR Practice (Ch.4)", section: null, qNumber: n,
       position: null, total: null, stimulus, stem, choices,
-      correctChoice: correct, qtype: classify(stem, stimulus),
+      correctChoice: correct, qtype: classifyLR(stem),
     });
   }
   return out;
